@@ -20,6 +20,7 @@ export default function TodoForm({ addTodo }) {
       addTodo({ ...todo, id: uuid() });
       setTodo({ ...todo, task: "" });
     }
+    console.log(todo);
   }
 
   return (
