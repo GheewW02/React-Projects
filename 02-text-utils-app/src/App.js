@@ -7,9 +7,8 @@ export default function App() {
   return (
     <>
       <Navibar title={{ t1: 3, t2: "gheeww", t3: "aayush", t4: "dai" }} />
-
       <TextForm heading="Uppercase Converter." />
-      <About />
+      {/* <About /> */}
     </>
   );
 }
