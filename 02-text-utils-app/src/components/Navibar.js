@@ -1,19 +1,12 @@
-import {
-  Button,
-  Container,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
+import { Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 import PropTypes from "prop-types";
 
 function Navibar(props) {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg={`${props.mode}`} variant={`${props.mode}`} expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/">{props.t1}</Navbar.Brand>
+        <Navbar.Brand href="/">TextUtils.</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -22,26 +15,21 @@ function Navibar(props) {
             navbarScroll
           >
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/">Link</Nav.Link>
+            <Nav.Link href="/">Dummy Link</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/">Action</NavDropdown.Item>
-              <NavDropdown.Item href="/">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="/">Dummy Action</NavDropdown.Item>
+              <NavDropdown.Item href="/">Another Dummy</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/">Something else here</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/" disabled>
-              Link
-            </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          <Form.Check
+            onClick={props.toggleMode}
+            className={`my-3 text-${props.mode === "light" ? "dark" : "light"}`}
+            type="switch"
+            id="custom-switch"
+            label={`Enable ${props.mode === "light" ? "dark" : "light"} mode`}
+          />
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -5,22 +5,22 @@ import { Accordion, Button } from "react-bootstrap";
 export default function About() {
   const [myStyle, setMyStyle] = useState({
     color: "white",
-    backgroundColor: "black",
+    backgroundColor: "#051f36",
     border: "1px solid blue",
   });
 
   const [btnText, setBtnText] = useState("Enable Dark Mode");
 
   const toggleStyle = () => {
-    if (myStyle.color === "black") {
+    if (myStyle.color === "#051f36") {
       setMyStyle({
         color: "white",
-        backgroundColor: "black",
+        backgroundColor: "#051f36",
       });
       setBtnText("Enable Light Mode");
     } else {
       setMyStyle({
-        color: "black",
+        color: "#051f36",
         backgroundColor: "white",
       });
       setBtnText("Enable Dark Mode");
