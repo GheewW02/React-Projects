@@ -44,7 +44,7 @@ export default function TextForm(props) {
           <Form.Group className="my-3">
             <Form.Control
               style={{
-                backgroundColor: props.mode === "dark" ? "#0f3b62" : "white",
+                backgroundColor: props.mode === "dark" ? "#051f36" : "white",
                 color: props.mode === "dark" ? "white" : "black",
               }}
               as="textarea"
