@@ -1,27 +1,26 @@
-import { Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
-
+import { Container, Form, Nav, Navbar } from "react-bootstrap";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Navibar(props) {
   return (
     <Navbar bg={`${props.mode}`} variant={`${props.mode}`} expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/">TextUtils.</Navbar.Brand>
+        <Navbar.Brand to="/">TextUtils.</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
+            style={{ maxHeight: "100px", display: "flex", gap: "10px" }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/">Dummy Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/">Dummy Action</NavDropdown.Item>
-              <NavDropdown.Item href="/">Another Dummy</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/">Something else here</NavDropdown.Item>
-            </NavDropdown>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              Home
+            </Link>
+            <Link to="/about" style={{ textDecoration: "none" }}>
+              About
+            </Link>
           </Nav>
           <Form.Check
             onClick={props.toggleMode}

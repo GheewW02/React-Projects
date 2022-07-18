@@ -4,6 +4,8 @@ import AlertBox from "./components/AlertBox";
 import Navibar from "./components/Navibar";
 import TextForm from "./components/TextForm";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 export default function App() {
   const [mode, setMode] = useState("light");
 
@@ -14,6 +16,9 @@ export default function App() {
       msg: message,
       type: type,
     });
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   };
 
   const toggleMode = () => {
@@ -29,10 +34,17 @@ export default function App() {
   };
   return (
     <>
-      <Navibar mode={mode} toggleMode={toggleMode} />
-      <AlertBox alert={alert} />
-      <TextForm mode={mode} heading="Text Util App." />
-      <About mode={mode} />
+      <Router>
+        <Navibar mode={mode} toggleMode={toggleMode} />
+        <AlertBox alert={alert} />
+        <Routes>
+          <Route
+            path="/"
+            element={<TextForm showAlert={showAlert} mode={mode} />}
+          ></Route>
+          <Route path="/about" element={<About mode={mode} />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 }

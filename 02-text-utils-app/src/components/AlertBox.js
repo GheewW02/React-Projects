@@ -9,7 +9,7 @@ export default function AlertBox(props) {
   return (
     props.alert && (
       <div className="container">
-        <Alert variant={`${props.alert.type}`} dismissible>
+        <Alert variant={`${props.alert.type}`}>
           <Alert.Heading>
             <strong>{toCapital(props.alert.type)}</strong>: {props.alert.msg}
           </Alert.Heading>
