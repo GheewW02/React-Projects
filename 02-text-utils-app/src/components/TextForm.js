@@ -55,26 +55,51 @@ export default function TextForm(props) {
               onChange={handleOnChange}
             />
           </Form.Group>
-          <Button className="btn btn-1 mx-2 " onClick={handleUpClick}>
+          <Button
+            disabled={text.length === 0}
+            className="btn btn-1 mx-2 my-1"
+            onClick={handleUpClick}
+          >
             Convert to uppercase
           </Button>
 
-          <Button className="btn btn-2 mx-2 " onClick={handleLowClick}>
+          <Button
+            disabled={text.length === 0}
+            className="btn btn-2 mx-2 my-1"
+            onClick={handleLowClick}
+          >
             Convert to lowercase
           </Button>
 
-          <Button className="btn btn-2 mx-2 " onClick={handleClearText}>
+          <Button
+            disabled={text.length === 0}
+            className="btn btn-2 mx-2 my-1"
+            onClick={handleClearText}
+          >
             Clear Text
           </Button>
         </Form>
         <div className="container my-3">
           <h2>Text Summary</h2>
           <p>
-            {text.length} characters and {text.split(" ").length} words.
+            {text.length} characters and{" "}
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }{" "}
+            words.
           </p>
-          <p>It takes {0.008 * text.split(" ").length} minutes to read.</p>
+          <p>
+            It takes{" "}
+            {0.008 *
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length}{" "}
+            minutes to read.
+          </p>
           <h2>Preview</h2>
-          <p>{text}</p>
+          <p>{text.length > 0 ? text : "Nothing to preview !!"}</p>
         </div>
       </div>
     </>

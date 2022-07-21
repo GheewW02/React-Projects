@@ -39,10 +39,11 @@ export default function App() {
         <AlertBox alert={alert} />
         <Routes>
           <Route
+            exact
             path="/"
             element={<TextForm showAlert={showAlert} mode={mode} />}
           ></Route>
-          <Route path="/about" element={<About mode={mode} />}></Route>
+          <Route exact path="/about" element={<About mode={mode} />}></Route>
         </Routes>
       </Router>
     </>
