@@ -41,7 +41,13 @@ export default function App() {
           <Route
             exact
             path="/"
-            element={<TextForm showAlert={showAlert} mode={mode} />}
+            element={
+              <TextForm
+                heading={"Text Converter"}
+                showAlert={showAlert}
+                mode={mode}
+              />
+            }
           ></Route>
           <Route exact path="/about" element={<About mode={mode} />}></Route>
         </Routes>
